@@ -170,7 +170,7 @@
 #### mailer：
 #### passwords：
 #### registrations：登録
-#### sessions：セッション、ログイン関係？
+#### sessions：セッション、サインイン関係？
 #### shared：
 #### unlocks：
 
