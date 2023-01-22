@@ -20,12 +20,12 @@ rails s
 # active_storage installコマンド マイグレーション(rails db:migrate)忘れずに
 rails active_storage:install
 
+# 画像が表示されるモデルにつけるやつ
+has_one_attached :image
+
 # 使用する画像ファイルはapp/assets/imageの中へ
 
 # 作る前に確認 アプリ2の2
-
-# 画像が表示されるモデルにつけるやつ
-has_one_attached :image
 
 # rails側で画像サイズの管理をするときに使うgem image_processingをinstallしたときのエラー回避のための記述をconfig/environmentsで
 config.active_job.queue_adapter = :inline
