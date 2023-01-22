@@ -38,8 +38,24 @@ form_with の　placeholder
 </div>
 <% end %>
 
-# active_storage installコマンド
+
+
+
+
+
+# config/environments 誰でも見れるようにするやつ
+config.hosts.clear
+
+# active_storage installコマンド マイグレーション忘れずに
 rails active_storage:install
 
 # 画像が表示されるモデルにつけるやつ
 has_one_attached :image
+
+# gemをinstallするときはGemfileにinstallしたいgemを書いてから
+bundle install
+
+# rails側で画像サイズの管理をするときに使うgem image_processingをinstallしたときのエラー回避のための記述をconfig/environmentsで
+config.active_job.queue_adapter = :inline
+
+# 使用する画像ファイルはapp/assets/imageの中へ
