@@ -81,7 +81,7 @@
 
 #### ログイン時の認証方法を:emailから:name(ユーザー名)に変えたいとき
 ##### config/initializers/devise.rbの何も触っていなければ41行目～49行目にあり
-##### (Configuration for any authentication mechanism → 任意の認証メカニズムの構成)、
+##### (41行目 Configuration for any authentication mechanism → 任意の認証メカニズムの構成)
 ##### 49行目の[:email]を
 
     [:name]
