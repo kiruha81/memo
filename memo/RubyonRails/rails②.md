@@ -182,12 +182,15 @@
 #### 利点
 ##### 構築さえすればコード操作がシンプルになる
 #### 設定方法
-##### ①1：Nの
+##### 1：Nの
 ##### 1のモデル(app/models)に
-has_many :モデル名の複数形(例：post_images), dependent: :destroy
+
+    has_many :モデル名の複数形(例：post_images), dependent: :destroy
+
 ##### dependent: :destroy は1が消えるとNも消えるという設定
 ##### Nに
-belongs_to :モデル名の単数形(userなど)
+
+    belongs_to :モデル名の単数形(userなど)
 
 # current_user
 #### 現在ログイン中のユーザーに関する情報を取得できる
