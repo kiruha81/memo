@@ -78,6 +78,7 @@
 
 #### protectedは他のコントローラーからも呼び出せるという効果がある
 
+
 # インスタンス変数
 #### @をつけることによってviewとやり取りできる
 #### コントローラーの変数は定義された変数でしかやり取りできない
@@ -100,6 +101,11 @@
 
 
 #### eachは順番に取得するメソッド
+
+# モデル名.all
+#### コントローラーのindexアクションなどに一覧表示するために使う
+
+    @変数 = モデル名.all
 
 # findメソッド
 #### 記述例
@@ -211,3 +217,35 @@
 #### １で変数を定義し、２で１で記述したモデルの中のuser_idを抽出し、user_idとcurrent_user(現在のユーザー)のidが同じであることを記しており
 #### 同じなら３で@変数にsave(保存)をする
 ##### むずいならアプリ2の10章 登録機能＞Controllerを見る
+
+# 画像表示(gem image_processingを使用して)
+#### 記述例(models/～.rb)
+
+    def get_image
+      if image.attached?
+        image
+      else
+        'no_image.jpg'
+      end
+    end
+
+#### モデルに書くことによって、get_imageを呼び出せる
+##### 例
+
+    @user = User.find(1)
+    @user.get_image
+
+#### 記述例(さらにActiveStorageを使う記述)
+
+    def get_image
+      unless image.attached?
+        file_path = Rails.root.join('app/assets/images/任意のimage')
+        image.attach(io: File.open(file_path), filename: '任意のimage', content_type: 'image/png')
+      end
+      image
+    end
+
+##### unlessはifの逆！
+##### ifはtrueのとき、unlessはfalseのときの処理
+
+
