@@ -28,9 +28,10 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 <% end %>
 #### file_fieldはデフォルトだと何でもアップロードできるのでaccept(受け入れる)でファイルの種類を絞る
 
-# モデル名.new
+# 変数 = モデル名.new
 #### 格納するための箱のようなもの。箱がないとカラムたちも入れない
-#### controllerのcreateにインスタンス変数をつけて書く
+#### この記述でモデル名に箱ができて変数に格納できる状態
+#### controllerの新規投稿するviewのアクションやcreateに書く
 #### (newにモデル名.newを書いたらcreate、新規(投稿など)のときに、モデル名.new(引数))
 #### (ここの引数はストロングパラメータの定義名になる)
 
