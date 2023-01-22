@@ -101,6 +101,15 @@ resources: :コントローラー名
 #### ルーティング自動生成
 ##### new show index edit create destroy update
 
+## deviseのview
+#### confirmations：確認
+#### mailer：
+#### passwords：
+#### registrations：登録
+#### sessions：セッション、ログイン関係？
+#### shared：
+#### unlocks：
+
 
 
 
