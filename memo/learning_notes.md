@@ -48,7 +48,7 @@ sh environment.sh
 ###### ↓
 rails -v
 
-#rails アプリ install
+# rails アプリ install
 rails new アプリ名
 
 # ターミナルのフォルダとファイル削除
@@ -92,30 +92,31 @@ rails g devise User
 ###### db/migrate/～.rb
 t.string :name
 rails db:migrate
-#### devise用のルーティング：devise_for :users がconfig/routes.rbに入力されている
-##### sign_up、sign_in、sign_outとか
+##### devise用のルーティング：devise_for :users がconfig/routes.rbに入力されている
+###### sign_up、sign_in、sign_outとか
 
 # モデル作成　削除は g → d
 rails g model モデル名(単数形の頭文字は大文字 例：User)
-## テーブルは小文字の複数形になる(例：users)
+#### テーブルは小文字の複数形になる(例：users)
 
 # カラム追加はdb/migrateの中で
 #### integer(整数)、string(短文)、text(長文)、time(時刻) など　詳しくはアプリ2-2
 t.データ型 :カラム名
-##### ↓
+###### ↓
 ## データベースに反映させる必要がある
 rails db:migrate
 
 ## db/schema.rbで反映を確認できる
 
 ## 後から追加する場合は
+
 rails g migration Addカラム名Toテーブル名 カラム名:型名
 ## 削除
 rails g migration Removeカラム名Fromテーブル名 カラム名:型名
-### もしくは
-#### dbの稼働状況を確認
+##### もしくは
+##### dbの稼働状況を確認
 rails db:migrate:status
-#### dbをdawnすることができるコマンド(戻す)
+##### dbをdawnすることができるコマンド(戻す)
 rails db:rollback
 ###### ↓
 db/migrate内のテーブルファイルでカラム追加
@@ -124,6 +125,6 @@ rails db:migrate
 
 # コントローラー
 rails g controller コントローラー名(小文字の複数形)
-#### コントローラー名の後にアクション名をつけるとviewとアクションが追加される(複数可)
+##### コントローラー名の後にアクション名をつけるとviewとアクションが追加される(複数可)
 
 
