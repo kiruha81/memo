@@ -89,7 +89,7 @@
 ##### に変更する
 ##### deviseのviewも変更すること(email_field → text_field)
 ##### devise用のルーティング：devise_for :users がconfig/routes.rbに入力されている
-###### sign_up、sign_in、sign_outとか
+###### sign_up、sign_in、sign_outとかのpath
 
 #### viewもdeviseでは作成方法が異なる
 
