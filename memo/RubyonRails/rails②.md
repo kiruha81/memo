@@ -116,9 +116,6 @@ end
 # before_actionについて
 #### 定義されたアクション等の前に実行することができる？
 
-# current_user.id
-#### currentは現在という意味
-
 # 動的ヘッダー
 #### 記入例
 <header>
@@ -156,3 +153,14 @@ has_many :モデル名の複数形(例：post_images), dependent: :destroy
 ##### dependent: :destroy は1が消えるとNも消えるという設定
 ##### Nに
 belongs_to :モデル名の単数形(userなど)
+
+# current_（user.id）
+#### currentは現在という意味
+#### 記述例(controllerでcreateアクション)
+#### ① @変数 = モデル名.new(ストロングパラメータの引数)
+#### ② @変数.（user_id） = current_（user.id）（）はわかりやすくするために書いているだけ、いらない
+#### ③ @変数.save
+#### @変数.カラム名で①のNのモデルの中のカラムを引き出すことができる
+#### ①で変数を定義し、②で①で記述したモデルの中のuser_idを抽出し、user_idとcurrent_user(現在のユーザー)のidが同じであることを記しており
+#### 同じなら③で@変数にsave(保存)をする
+##### むずいならアプリ2の10章 登録機能＞Controllerを見る
