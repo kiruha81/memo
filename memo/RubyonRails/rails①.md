@@ -131,7 +131,7 @@
 
     rails db:migrate:status
 
-##### dbをdawnすることができるコマンド(戻す)
+##### dbをdownすることができるコマンド(戻す)
 
     rails db:rollback
 
