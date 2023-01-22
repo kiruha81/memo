@@ -35,7 +35,7 @@
 
 # 使用する画像ファイルはapp/assets/imageの中へ
 
-# 作る前に確認 アプリ2の2
+# 作る前に確認 アプリ2の2章
 
 # rails側で画像サイズの管理をするときに使うgem image_processingをinstallしたときのエラー回避のための記述をconfig/environmentsで
 
