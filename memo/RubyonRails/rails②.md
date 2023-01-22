@@ -189,6 +189,9 @@ has_many :モデル名の複数形(例：post_images), dependent: :destroy
 ##### Nに
 belongs_to :モデル名の単数形(userなど)
 
+# current_user
+#### 現在ログイン中のユーザーに関する情報を取得できる
+
 # current_（user.id）
 #### currentは現在という意味
 #### 記述例(controllerでcreateアクション)
