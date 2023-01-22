@@ -1,3 +1,5 @@
+😂
+
 # deviseのサインアップ、サインイン時のカラム受け取りはデフォルトでemailとpasswordのみ
 #### nameカラムを使うときは追記が必要(①で書いてる)
 #### その後コントローラー(application_controller.rb)で許可しないといけない
