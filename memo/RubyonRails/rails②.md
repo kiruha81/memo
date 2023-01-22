@@ -200,6 +200,19 @@
 
     belongs_to :モデル名の単数形(userなど)
 
+#### controllerへの記述例
+
+##### Nのコントローラー
+
+    @Nの変数 = Nのモデル.all
+
+##### 1のコントローラー
+
+    @Nの変数 = @1の変数.カラム名
+
+##### アソシエーションを設定しているとコントローラーやアクションが異なっていても行き来できる
+
+
 # current_user
 #### 現在ログイン中のユーザーに関する情報を取得できる
 
@@ -217,6 +230,16 @@
 #### １で変数を定義し、２で１で記述したモデルの中のuser_idを抽出し、user_idとcurrent_user(現在のユーザー)のidが同じであることを記しており
 #### 同じなら３で@変数にsave(保存)をする
 ##### むずいならアプリ2の10章 登録機能＞Controllerを見る
+
+#### 記述例2
+
+    <% if @post_image.user == current_user %>
+      <%= link_to "削除", post_image_path(@post_image), method: :delete %>
+    <% end %>
+
+##### もし、投稿者 == 現在ログインしているユーザ だったら
+#####   削除ボタン
+##### 終わり
 
 # 画像表示(gem image_processingを使用して)
 #### 記述例(models/～.rb)
@@ -260,4 +283,14 @@
       </div>
     <% end %>
 
+###### アプリ2 11章
 
+    def get_profile_image(width, height)
+      unless profile_image.attached?
+        file_path = Rails.root.join('app/assets/images/aokami.png')
+        profile_image.attach(io: File.open(file_path), filename: 'aokami.png', content_type: 'image/png')
+      end
+      profile_image.variant(resize_to_limit: [width, height]).processed
+    end
+
+##### アプリ2 14章
