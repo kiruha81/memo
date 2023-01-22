@@ -50,14 +50,24 @@ rails g devise User
 t.string :name
 
 rails db:migrate
+#### ログイン時の認証方法を:emailから:name(ユーザー名)に変えたいとき
+##### config/initializers/devise.rbの何も触っていなければ41行目～49行目にあり
+##### (Configuration for any authentication mechanism → 任意の認証メカニズムの構成)、
+##### 49行目の[:email]を
+[:name]
+##### に変更する
+##### deviseのviewも変更すること(email_field → text_field)
 ##### devise用のルーティング：devise_for :users がconfig/routes.rbに入力されている
 ###### sign_up、sign_in、sign_outとか
 
 #### viewもdeviseでは作成方法が異なる
 rails g devise:views
 
+#### deviseのviewファイルのform記述はform_forなので注意
+##### 現在のrailsではform_with推奨
+
 # モデル(app/models)作成　削除は g → d
-rails g model モデル名(単数形の頭文字は大文字 例：User)
+rails g model モデル名(単数形の単語の頭文字は大文字 例：User、PostImage)
 #### テーブルは小文字の複数形になる(例：users)
 
 # カラム追加はdb/migrateの中で

@@ -29,12 +29,10 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 #### file_fieldはデフォルトだと何でもアップロードできるのでaccept(受け入れる)でファイルの種類を絞る
 
 # モデル名.new
-#### 格納するための箱のようなもの。箱がないとカラムたちも入れない。
-
-# インスタンス変数
-#### @をつけることによってviewとやり取りできる
-#### コントローラーの変数は定義された変数でしかやり取りできない
-##### 例：コントローラーのshowで定義した変数はviewのshowでしか使えない
+#### 格納するための箱のようなもの。箱がないとカラムたちも入れない
+#### controllerのcreateにインスタンス変数をつけて書く
+#### (newにモデル名.newを書いたらcreate、新規(投稿など)のときに、モデル名.new(引数))
+#### (ここの引数はストロングパラメータの定義名になる)
 
 # ストロングパラメーター
 #### 記述例
@@ -57,6 +55,11 @@ def configure_permitted_parameters
 end
 
 #### protectedは他のコントローラーからも呼び出せるという効果がある
+
+# インスタンス変数
+#### @をつけることによってviewとやり取りできる
+#### コントローラーの変数は定義された変数でしかやり取りできない
+##### 例：コントローラーのshowで定義した変数はviewのshowでしか使えない
 
 # eachメソッドを使用した一覧表示
 #### 記述例
@@ -115,3 +118,40 @@ end
 # current_user.id
 #### currentは現在という意味
 
+# 動的ヘッダー
+#### 記入例
+<header>
+  <% if user_signed_in? %>
+    <li>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to "新規登録", new_user_registration_path %>
+    </li>
+    <li>
+      <%= link_to "ログイン", new_user_session_path %>
+    </li>
+  <% end %>
+</header>
+#### ifを用いて user_signed_in? メソッドを使う。deviseをinstallすることで使用可能になるヘルパーメソッド。
+#### ログイン済ならtrue、未ログインならfalse
+
+# アソシエーション
+#### https://www.youtube.com/watch?v=iJkg9OuYfYk
+#### モデル間との繋がりを持たせること
+#### 1：N の関係
+##### 1がuser、Nが複数投稿するものだとして、
+##### 複数投稿するもの、Nに番号をつける。新しいカラム(外部キーという)を作成する(ここだとuser_id)
+##### そうすることにより複数投稿するものに番号が割り振られ
+##### 誰がどの投稿をしたかわかるようになる。
+##### また、ソートできるようにもなる(id1の投稿を絞れる)。
+#### 利点
+##### 構築さえすればコード操作がシンプルになる
+#### 設定方法
+##### ①1：Nの
+##### 1のモデル(app/models)に
+has_many :モデル名の複数形(例：post_images), dependent: :destroy
+##### dependent: :destroy は1が消えるとNも消えるという設定
+##### Nに
+belongs_to :モデル名の単数形(userなど)
