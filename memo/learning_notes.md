@@ -91,6 +91,7 @@ rails g devise User
 #### nameカラムを使用したいときはテーブルに追加する
 ###### db/migrate/～.rb
 t.string :name
+
 rails db:migrate
 ##### devise用のルーティング：devise_for :users がconfig/routes.rbに入力されている
 ###### sign_up、sign_in、sign_outとか
