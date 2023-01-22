@@ -53,6 +53,9 @@ rails db:migrate
 ##### devise用のルーティング：devise_for :users がconfig/routes.rbに入力されている
 ###### sign_up、sign_in、sign_outとか
 
+#### viewもdeviseでは作成方法が異なる
+rails g devise:views
+
 # モデル(app/models)作成　削除は g → d
 rails g model モデル名(単数形の頭文字は大文字 例：User)
 #### テーブルは小文字の複数形になる(例：users)
