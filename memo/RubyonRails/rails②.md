@@ -1,37 +1,41 @@
 # deviseのサインアップ、サインイン時のカラム受け取りはデフォルトでemailとpasswordのみ
 #### nameカラムを使うときは追記が必要(①で書いてる)
 #### その後コントローラー(application_controller.rb)で許可しないといけない
-before_action :configure_permitted_parameters, if: :devise_controller?
 
-  protected
+    before_action :configure_permitted_parameters, if: :devise_controller?
 
-  def configure_permitted_parameters
+    protected
 
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    def configure_permitted_parameters
 
-  end
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+
+    end
 
 # form_with
 #### 基本形
-<%= form_with model: , url: , method: :デフォルトはget, do |f| %>
 
-  <%= f.text_field :カラム名, placeholder: "空白時になにか書ける" %>
+    <%= form_with model: , url: , method: :デフォルトはget, do |f| %>
 
-  <%= f.text_area :カラム名 %>
+      <%= f.text_field :カラム名, placeholder: "空白時になにか書ける" %>
 
-  <%= f.submit '○○' %>
+      <%= f.text_area :カラム名 %>
 
-<% end %>
+      <%= f.submit '○○' %>
+
+    <% end %>
 #### 記述例
-<%= form_with model: @post_image do |f| %>
-  <h4>画像</h4>
-    <%= f.file_field :image, accept: "image/*" %>
-  <h4>ショップ名</h4>
-    <%= f.text_field :shop_name %>
-  <h4>説明</h4>
-    <%= f.text_area :caption %><br>
-  <%= f.submit '投稿' %><br>
-<% end %>
+
+    <%= form_with model: @post_image do |f| %>
+      <h4>画像</h4>
+        <%= f.file_field :image, accept: "image/*" %>
+      <h4>ショップ名</h4>
+        <%= f.text_field :shop_name %>
+      <h4>説明</h4>
+        <%= f.text_area :caption %><br>
+      <%= f.submit '投稿' %><br>
+    <% end %>
+
 #### file_fieldはデフォルトだと何でもアップロードできるのでaccept(受け入れる)でファイルの種類を絞る
 
 # 変数 = モデル名.new
@@ -43,13 +47,14 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 
 # ストロングパラメーター
 #### 記述例
-private
 
-  def list(モデル名)_params
+    private
 
-    params.require(:list(モデル名)).permit(:title, :body(カラム名))
+    def list(モデル名)_params
 
-  end
+      params.require(:list(モデル名)).permit(:title, :body(カラム名))
+
+    end
 
 
 ##### params：パラメータ
