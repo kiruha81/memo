@@ -43,9 +43,9 @@ form_with の　placeholder
 
 # railsをcloud9にinstall
 wget https://wals.s3.ap-northeast-1.amazonaws.com/curriculum/rails/environment.sh
-↓
+###### ↓
 sh environment.sh
-↓
+###### ↓
 rails -v
 
 #rails アプリ install
@@ -80,14 +80,14 @@ bundle install
 # ユーザー管理するときはdeviseのgemを使う
 ## Gemfileに
 gem 'devise'
-↓
+###### ↓
 bundle install
-↓
+###### ↓
 rails g devise:install
-↓
+###### ↓
 #### deviseを用いたときのモデル作成の記述は通常と異なる
 rails g devise User
-↓
+###### ↓
 #### nameカラムを使用したいときはテーブルに追加する
 ###### db/migrate/～.rb
 t.string :name
@@ -102,7 +102,7 @@ rails g model モデル名(単数形の頭文字は大文字 例：User)
 # カラム追加はdb/migrateの中で
 #### integer(整数)、string(短文)、text(長文)、time(時刻) など　詳しくはアプリ2-2
 t.データ型 :カラム名
-↓
+##### ↓
 ## データベースに反映させる必要がある
 rails db:migrate
 
@@ -117,9 +117,9 @@ rails g migration Removeカラム名Fromテーブル名 カラム名:型名
 rails db:migrate:status
 #### dbをdawnすることができるコマンド(戻す)
 rails db:rollback
-↓
+###### ↓
 db/migrate内のテーブルファイルでカラム追加
-↓
+###### ↓
 rails db:migrate
 
 # コントローラー
