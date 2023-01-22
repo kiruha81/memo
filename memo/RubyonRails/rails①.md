@@ -100,7 +100,7 @@
 
 # モデル(app/models)作成　削除は g → d
 
-    rails g model モデル名(単数形の単語の頭文字は大文字 例：User、PostImage)
+    rails g model モデル名(単数形で単語の頭文字は大文字 例：User、PostImage)
 
 #### テーブルは小文字の複数形になる(例：users)
 
