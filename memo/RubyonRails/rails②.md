@@ -32,7 +32,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 #### 格納するための箱のようなもの。箱がないとカラムたちも入れない
 #### この記述でモデル名に箱ができて変数に格納できる状態
 #### controllerの新規投稿するviewのアクションやcreateに書く
-#### (newにモデル名.newを書いたらcreate、新規(投稿など)のときに、モデル名.new(引数))
+#### (newにモデル名.newを書いたらcreate、新規投稿(など)のときに、モデル名.new(引数))
 #### (ここの引数はストロングパラメータの定義名になる)
 
 # ストロングパラメーター
