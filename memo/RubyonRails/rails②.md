@@ -64,13 +64,14 @@
 #### 実装することによって脆弱性をなくしている。
 ### privateに対してprotectedがある。
 #### 記述例(deviseのサインアップ、サインイン時のカラム受け取りの許可)
-protected
 
-def configure_permitted_parameters
+    protected
 
-  devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    def configure_permitted_parameters
 
-end
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+
+    end
 
 
 #### protectedは他のコントローラーからも呼び出せるという効果がある
@@ -82,24 +83,26 @@ end
 
 # eachメソッドを使用した一覧表示
 #### 記述例
-<%= @lists.each do |変数| %>
+
+    <%= @lists.each do |変数| %>
 
 
-  <%= 変数.id %>
+      <%= 変数.id %>
 
-  <%= 変数.title %>
+      <%= 変数.title %>
 
-  <%= 変数.body %>
+      <%= 変数.body %>
 
 
-<% end %>
+    <% end %>
 
 
 #### eachは順番に取得するメソッド
 
 # findメソッド
 #### 記述例
-@list = List.find(params[:id])
+
+    @list = List.find(params[:id])
 
 #### findは引数を受け取るメソッド
 #### params：パラメータ
@@ -108,9 +111,12 @@ end
 
 # link_toメソッド
 #### 基本形
-<%= link_to 表示させるテキスト , リンク先URL [,オプション] %>
+
+    <%= link_to 表示させるテキスト , リンク先URL [,オプション] %>
 #### 記述例
-<%= link_to list.title, list_path(list.id) %>
+
+    <%= link_to list.title, list_path(list.id) %>
+
 #### methodも指定できる。デフォルトはGET
 
 # 保存、更新、削除
@@ -127,11 +133,12 @@ end
 
 # after_sign_in_path_forとafter_sign_out_path_for
 #### 記述例
-def after_sign_in_path_for(resource)
 
-  about_path
+    def after_sign_in_path_for(resource)
 
-end
+      about_path
+
+    end
 
 
 #### deviseをinstallすると使えるメソッド
@@ -144,20 +151,21 @@ end
 
 # 動的ヘッダー
 #### 記入例
-<header>
-  <% if user_signed_in? %>
-    <li>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    </li>
-  <% else %>
-    <li>
-      <%= link_to "新規登録", new_user_registration_path %>
-    </li>
-    <li>
-      <%= link_to "ログイン", new_user_session_path %>
-    </li>
-  <% end %>
-</header>
+
+    <header>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "新規登録", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
+      <% end %>
+    </header>
 
 #### ifを用いて user_signed_in? メソッドを使う。deviseをinstallすることで使用可能になるヘルパーメソッド。
 #### ログイン済ならtrue、未ログインならfalse
