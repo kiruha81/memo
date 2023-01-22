@@ -6,15 +6,21 @@ before_action :configure_permitted_parameters, if: :devise_controller?
   protected
 
   def configure_permitted_parameters
+
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+
   end
 
 # form_with
 #### 基本形
-<%= form_with model: , url: , method: :デフォルトはget, do |f| %><br>
+<%= form_with model: , url: , method: :デフォルトはget, do |f| %>
+
   <%= f.text_field :カラム名, placeholder: "空白時になにか書ける" %>
+
   <%= f.text_area :カラム名 %>
+
   <%= f.submit '○○' %>
+
 <% end %>
 #### 記述例
 <%= form_with model: @post_image do |f| %>
@@ -23,8 +29,8 @@ before_action :configure_permitted_parameters, if: :devise_controller?
   <h4>ショップ名</h4>
     <%= f.text_field :shop_name %>
   <h4>説明</h4>
-    <%= f.text_area :caption %>
-  <%= f.submit '投稿' %>
+    <%= f.text_area :caption %><br>
+  <%= f.submit '投稿' %><br>
 <% end %>
 #### file_fieldはデフォルトだと何でもアップロードできるのでaccept(受け入れる)でファイルの種類を絞る
 
@@ -38,9 +44,13 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 # ストロングパラメーター
 #### 記述例
 private
+
   def list(モデル名)_params
+
     params.require(:list(モデル名)).permit(:title, :body(カラム名))
+
   end
+
 
 ##### params：パラメータ
 ##### require：必須
@@ -52,8 +62,11 @@ private
 protected
 
 def configure_permitted_parameters
+
   devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+
 end
+
 
 #### protectedは他のコントローラーからも呼び出せるという効果がある
 
@@ -66,11 +79,16 @@ end
 #### 記述例
 <%= @lists.each do |変数| %>
 
+
   <%= 変数.id %>
+
   <%= 変数.title %>
+
   <%= 変数.body %>
 
+
 <% end %>
+
 
 #### eachは順番に取得するメソッド
 
@@ -105,8 +123,11 @@ end
 # after_sign_in_path_forとafter_sign_out_path_for
 #### 記述例
 def after_sign_in_path_for(resource)
+
   about_path
+
 end
+
 
 #### deviseをinstallすると使えるメソッド
 #### サインイン(サインアウト)した後にどこに移動するか設定する
@@ -132,6 +153,7 @@ end
     </li>
   <% end %>
 </header>
+
 #### ifを用いて user_signed_in? メソッドを使う。deviseをinstallすることで使用可能になるヘルパーメソッド。
 #### ログイン済ならtrue、未ログインならfalse
 
