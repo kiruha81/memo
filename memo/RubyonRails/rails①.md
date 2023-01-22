@@ -20,7 +20,7 @@ rails s
 # active_storage installコマンド マイグレーション(rails db:migrate)忘れずに
 rails active_storage:install
 
-# 画像が表示されるモデルにつけるやつ
+# ActiveStorageインストール後、画像が表示されるページのモデルにつけるやつ
 has_one_attached :image
 
 # 使用する画像ファイルはapp/assets/imageの中へ
