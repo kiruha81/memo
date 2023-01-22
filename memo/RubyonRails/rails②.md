@@ -11,7 +11,7 @@ before_action :configure_permitted_parameters, if: :devise_controller?
 
 # form_with
 #### 基本形
-<%= form_with model: , url: , method: :デフォルトはget, do |f| %>
+<%= form_with model: , url: , method: :デフォルトはget, do |f| %><br>
   <%= f.text_field :カラム名, placeholder: "空白時になにか書ける" %>
   <%= f.text_area :カラム名 %>
   <%= f.submit '○○' %>
