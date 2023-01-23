@@ -174,6 +174,64 @@
 #### shared：
 #### unlocks：
 
+# Bootstrap導入
+#### 1⃣
+
+    yarn add jquery bootstrap@4.5 popper.js
+
+#### 2⃣
+##### config/webpack/environment.js
+
+    const webpack = require('webpack')
+    environment.plugins.prepend(
+      'Provide',
+      new webpack.ProvidePlugin({
+      $: 'jquery/src/jquery',
+      jQuery: 'jquery/src/jquery',
+      Popper: 'popper.js'
+      })
+    )
+
+#### 3⃣
+##### app/javascriptにstylesheetsフォルダ作成
+##### app/javascript/stylesheetsフォルダにapplication.scssファイル作成
+##### app/javascript/stylesheets/application.scss
+
+    @import '~bootstrap/scss/bootstrap';
+
+#### 4⃣
+##### app/javascript/packs/application.js
+
+    import "jquery";
+    import "popper.js";
+    import "bootstrap";
+    import "../stylesheets/application"
+
+#### 5⃣
+##### app/views/layouts/application.html.erb
+##### 10行目のlinkをpackに変更
+##### link → app/assets
+##### pack → app/javascript　を参照する
+
+
+# FontAwesome導入
+##### FontAwesomeはアイコンを挿入するサービス
+##### https://fontawesome.com/
+##### JavaScriptで動いている
+
+#### 1⃣
+
+    yarn add @fortawesome/fontawesome-free@5.15.4
+
+#### 2⃣
+##### app/javascript/packs/application.jsに追記
+
+    import '@fortawesome/fontawesome-free/js/all'
+
+#### 3⃣
+##### app/javascript/stylesheets/application.scss
+
+    @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 
 
