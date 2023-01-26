@@ -24,6 +24,10 @@
 # rails サーバー起動
 
     rails s
+#### ブラウジング時左上のやつが邪魔なときは
+
+    ?pp=disable
+#### をurlの後ろにつける
 
 # active_storage installコマンド マイグレーション(rails db:migrate)忘れずに
 
@@ -173,6 +177,7 @@
 #### sessions：セッション、サインイン関係？
 #### shared：
 #### unlocks：
+### install時に追加されるdevise_for :usersは通常のuserルーティングより上に記述しないとルーティングがおかしくなる
 
 # Bootstrap導入
 #### 1⃣
